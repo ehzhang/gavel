@@ -1,0 +1,44 @@
+<head>
+  <title>coinbase</title>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+{{> app}}
+</body>
+
+<template name="app">
+  {{> nav }}
+  <h1>Hello World!</h1>
+  <i class="help icon"></i>
+  <input type="button" value="Click" />
+</template>
+
+<template name="nav">
+  <div class="ui inverted menu">
+    <a class="logo item">
+      006q
+    </a>
+    <div class="right menu">
+      {{#if currentUser}}
+      <!--<a class="changelog icon item">-->
+      <!--<i class="info icon"></i>-->
+      <!--</a>-->
+      <a class="report item">
+        Reports
+      </a>
+      <a class="queue item">
+        Queue
+      </a>
+      <a class="logout item">
+        Sign Out
+      </a>
+      {{else}}
+      <a class="login item">
+        Staff Login
+      </a>
+      {{/if}}
+    </div>
+  </div>
+</template>
