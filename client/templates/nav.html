@@ -1,0 +1,23 @@
+<template name="nav">
+  <i class="large logo inverted square legal nav icon link"></i>
+
+  <div class="ui purple vertical nav sidebar menu">
+    <div class="logo item">
+      <i class="legal icon"></i>
+      <b>Gavel</b>
+    </div>
+    {{#if currentUser}}
+    <a class="item">
+      <img class="ui account avatar image" src="/assets/bros/{{username}}.jpg">
+      {{name}}
+    </a>
+    <a class="resetPassword item">
+      <i class="lock icon"></i>
+      Reset Password
+    </a>
+    <a class="signout item">
+      Sign Out
+    </a>
+    {{/if}}
+  </div>
+</template>
