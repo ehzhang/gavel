@@ -1,17 +1,16 @@
 
 Template.nav.events({
   'click .nav.icon': function () {
-    $('.nav.sidebar')
-      .sidebar('toggle');
+    toggleSidebar();
   },
   'click .signout': function () {
-    $('.nav.sidebar')
-      .sidebar('toggle');
+    toggleSidebar();
     Meteor.logout();
   },
   'click .resetPassword': function () {
-    showDimmerMessage("You've been sent an email to reset your password!");
     Meteor.call('resetPasswordEmail');
+    showDimmerMessage("You've been sent an email to reset your password!");
+    toggleSidebar();
   }
 });
 
@@ -23,6 +22,12 @@ Template.nav.name = function () {
   return Meteor.user().profile.name;
 };
 
+toggleSidebar = function () {
+  $('.nav.sidebar')
+    .sidebar('toggle');
+};
+
 showDimmerMessage = function (msg) {
-  return true;
+  $('.dimmer .center').text(msg);
+  $('.dimmer').dimmer('show');
 };
