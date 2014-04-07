@@ -22,6 +22,10 @@ Template.nav.name = function () {
   return Meteor.user().profile.name;
 };
 
+Template.nav.isAdmin = function () {
+  return Meteor.user().profile.admin;
+}
+
 toggleSidebar = function () {
   $('.nav.sidebar')
     .sidebar('toggle');

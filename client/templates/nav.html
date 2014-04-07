@@ -2,22 +2,29 @@
   <i class="large logo inverted square legal nav icon link"></i>
 
   <div class="ui purple vertical nav sidebar menu">
-    <div class="logo item">
+    <a class="logo item">
       <i class="legal icon"></i>
       <b>Gavel</b>
-    </div>
+    </a>
     {{#if currentUser}}
-    <a class="item">
-      <img class="ui account avatar image" src="/assets/bros/{{username}}.jpg">
-      {{name}}
-    </a>
-    <a class="resetPassword item">
-      <i class="lock icon"></i>
-      Reset Password
-    </a>
-    <a class="signout item">
-      Sign Out
-    </a>
+      <a class="item">
+        <img class="ui account avatar image" src="/assets/bros/{{username}}.jpg">
+        {{name}}
+      </a>
+
+      {{#if isAdmin}}
+      <a class="admin item">
+        Admin Console
+      </a>
+      {{/if}}
+
+      <a class="resetPassword item">
+        <i class="lock icon"></i>
+        Reset Password
+      </a>
+      <a class="signout item">
+        Sign Out
+      </a>
     {{/if}}
   </div>
 
