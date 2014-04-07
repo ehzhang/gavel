@@ -4,6 +4,8 @@
 
 Posts = new Meteor.Collection("posts");
 
+Session.setDefault("page", "home");
+
 Deps.autorun(function () {
   if (Meteor.user()) {
     // If the user is logged in, load all of the requests.

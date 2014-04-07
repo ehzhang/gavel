@@ -11,7 +11,12 @@
 
 <template name="app">
   {{#if currentUser}}
-    {{> feed}}
+    {{#if pageIs "home"}}
+      {{> feed}}
+    {{/if}}
+    {{#if pageIs "profile"}}
+      {{> profile}}
+    {{/if}}
   {{else}}
     {{> login}}
   {{/if}}
