@@ -8,11 +8,11 @@ getAllPosts = function () {
   return Posts.find({});
 };
 
-// Today!
-var today = new Date();
-var start = new Date(today.setHours(0, 0, 0, 0));
-
 getTodaysPosts = function () {
+
+  // Today!
+  var today = new Date();
+  var start = new Date(today.setHours(0, 0, 0, 0));
 
   return Posts.find({
     timestamp: { $gte: start }
