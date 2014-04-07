@@ -5,7 +5,12 @@ var start = new Date(today.setHours(0, 0, 0, 0));
 Session.set("yourPost", "");
 
 Template.feed.posts = function () {
-  return Posts.find({}, {sort: {timestamp: -1}});
+  return Posts.find({
+    timestamp: { $gte: start }
+  }, {
+    sort: {timestamp: -1},
+    limit: 35
+  });
 };
 
 Template.feed.brothers = function () {

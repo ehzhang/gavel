@@ -8,11 +8,9 @@ getAllPosts = function () {
   return Posts.find({});
 };
 
-getTodaysPosts = function () {
+getTodaysPosts = function (date) {
 
-  // Today!
-  var today = new Date();
-  var start = new Date(today.setHours(0, 0, 0, 0));
+  var start = new Date(date.setHours(0, 0, 0, 0));
 
   return Posts.find({
     timestamp: { $gte: start }
@@ -38,6 +36,9 @@ Meteor.methods({
   post: function (content) {
 
     var user = Meteor.users.find({_id: this.userId}).fetch()[0];
+
+    var date = new Date();
+    var start = new Date(date.setHours(0, 0, 0, 0));
 
     var count = Posts.find({
       owner: user._id,
