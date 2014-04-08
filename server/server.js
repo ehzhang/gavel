@@ -44,12 +44,16 @@ Meteor.methods({
     var user = Meteor.users.find({_id: this.userId}).fetch()[0];
 
     var date = new Date();
-    var start = new Date(date.setHours(0, 0, 0, 0));
+    var start = new Date(date.setHours(-4, 0, 0, 0)); // EDT fix
 
     var count = Posts.find({
       owner: user._id,
       timestamp: { $gte: start }
     }).count();
+
+    console.log(start);
+    console.log(count);
+
     if (count === 0) {
       Posts.insert({
         owner: this.userId,
