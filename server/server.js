@@ -5,12 +5,18 @@
 Posts = new Meteor.Collection("posts");
 
 getAllPosts = function () {
-  return Posts.find({});
+  // Dirty fix
+  return Posts.find({
+  }, {
+    sort: {timestamp : -1},
+    limit: 32});
 };
 
 getTodaysPosts = function (date) {
 
   var start = new Date(date.setHours(0, 0, 0, 0));
+
+  console.log(start);
 
   return Posts.find({
     timestamp: { $gte: start }
